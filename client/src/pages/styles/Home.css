@@ -1,0 +1,82 @@
+.home{
+    background-image: url('../imagenes/map-world-map-artwork-countries-wallpaper-preview.jpg');
+}
+
+.title{
+    color: aliceblue;
+}
+
+.nextFloat{
+    color: aliceblue;
+}
+
+.beforeFloat{
+    color: aliceblue;
+}
+
+.countries_grid{
+    display: grid;
+    grid-template-columns: repeat(3, 270px);
+    gap: 100px;
+    padding: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.countries {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+.notAvalaible{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 23rem;
+    margin-bottom: 1rem;
+    margin-top: 8rem;
+}
+
+.notFound-icon{
+    font-size: 10rem;
+    margin: 0px
+}
+
+.notFound-text {
+    margin-top: 1rem;
+    font-size: 15px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    margin-right: 7px;
+}
+  
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4F4537;
+    border-radius: 5px;
+}
+
+@media (max-width: 1200px) {
+    .countries_grid {
+        grid-template-columns: 33% 33% 33%;
+    }
+}
+
+@media (max-width: 900px) {
+    .countries_grid {
+        grid-template-columns: 50% 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    .countries_grid {
+        grid-template-columns: 100%;
+    }
+}

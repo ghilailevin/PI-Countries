@@ -1,0 +1,74 @@
+.pageCreateTourism{
+    background-image: url('../imagenes/undraw_connected_world_wuay.svg');
+    display: flex;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    justify-content: center;
+    background-color: white;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 89vh;
+}
+
+.navTourism{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 40%;
+    padding-top: 4rem 
+}
+
+.navTitle{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.containerCreate{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 40%;
+    padding-top: 4rem 
+}
+
+.selectCreate{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 7px;
+}
+
+.scrollDiv{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 20px;
+    color:rgb(21, 247, 0)
+}
+
+@media (max-width: 850px) {
+    .selects {
+        flex-direction: column;
+    }
+
+    .responsive:nth-child(1) {
+        margin-bottom: 1rem;
+    }
+    .responsive:nth-child(2) {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .form__content {
+        width: 60%
+    }
+}
