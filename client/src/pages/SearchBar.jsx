@@ -1,10 +1,12 @@
 import {findNameCountry, orderBy, getAllCountries} from '../actions/actions.js'
 import React, {useEffect, useState} from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './styles/SearchBar.css'
 
 const SearchBar = ({setCurrentPage}) => {
     const dispatch = useDispatch()
+
+    const extra = useSelector(state => state.allCountries)
 
     const[input, setInput]= useState({
         name:"",
@@ -41,14 +43,23 @@ const SearchBar = ({setCurrentPage}) => {
     function handleOrder(e) {setInput({...input, order:e.target.value})}
     function handleFilterContinent(e) {setInput({...input, continent:e.target.value})}
     function handleFilterTourism(e) {setInput({...input, tourism:e.target.value})}
+    
+    let optionsTourism = [
+        {value: '', label: 'All Tourism'}
+    ]
 
+    extra?.map((country) =>{
+        return country.activities?.map(activity =>{
+            return optionsTourism.push({value: activity.name, label: activity.name})
+        })
+    })
     return ( 
         <div className='filterBar'>
             <div className='filterBar'>
                 <select className='selectOption' onChange={handleOrder} value={input.order}>
                 <option value=''>Order By</option>
-                <option value='ASC'>ASC</option>
-                <option value='DESC'>DESC</option>
+                <option value='name ASC'>ASC</option> 
+                <option value='name DESC'>DESC</option>
                 <option value='population DESC'>Major Population</option>
                 <option value='population ASC'>Menor Population</option>
                 </select>
@@ -66,9 +77,9 @@ const SearchBar = ({setCurrentPage}) => {
                 <select className='selectOption' onChange={handleFilterTourism} value={input.tourism}>
                     <option value="">Filter By Tourism</option>
                     {
-                        state.map((country) => country.activities.map(activity => (
-                            <option value={activity.name}>{activity.name}</option>
-                        )))
+                        optionsTourism.filter((curret, index, options)=>options.findIndex(tourism=>(tourism.value===curret.value))===index).map((activity)=>{
+                            return <option value={activity.value}>{activity.label}</option>
+                        })
                     }
                 </select>
 

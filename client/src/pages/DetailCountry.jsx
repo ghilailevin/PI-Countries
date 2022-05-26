@@ -11,6 +11,10 @@ const DetailCountry = () =>{
 
     const km = countryDetail.area / 100000
 
+    const handleRoute = () =>{
+        window.location.href = '/home/newActivity'
+    }
+
     const {id} = useParams();
 
     useEffect(() =>{
@@ -35,6 +39,7 @@ const DetailCountry = () =>{
                 </div>
             </div>
             <h1 className='showActivity'>Tourism Activities</h1>
+            <button className='avtivity' onClick={handleRoute}>activities</button>
             {
                 countryDetail.activities === undefined || countryDetail?.activities?.length === 0 ?<h2 className='loading'>There Are Not Activities Created</h2> : countryDetail?.activities?.map((activity) =>(
                     <div key={activity.id} className='cardActivity'>

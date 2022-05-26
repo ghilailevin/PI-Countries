@@ -26,8 +26,17 @@ const CreateActivity = () => {
     function handleDifficult(e){setInput({...input, difficult:e.target.value})}
     function handleDuration(e){setInput({...input, duration:e.target.value})} 
     function handleSeason(e){setInput({...input, season:e.target.value})}
-    function handleCountries(e){setInput({...input, codeCountry:input.codeCountry.concat(e.target.value)})}
-
+    function handleCountries(e){
+        if(input.codeCountry.includes(e.target.value)){
+            console.log(input.codeCountry)
+           setInput({...input, codeCountry:input.codeCountry.filter(code =>{
+            return code != e.target.value
+           })})
+        } else {
+            setInput({...input, codeCountry:input.codeCountry.concat(e.target.value)})
+        }
+    }
+    
     function submitForm(e){
         e.preventDefault()
         
@@ -73,7 +82,7 @@ const CreateActivity = () => {
         .then( res => res.json() )
         .then(data => setState(data))
     },[])
-
+console.log(input.codeCountry)
     return ( 
         <div className='pageCreateTourism'>
             <div className='navTourism'>
@@ -125,7 +134,6 @@ const CreateActivity = () => {
                             <input type="checkbox" value={country.id} key={country.id} />
                             {country.name}
                         </div>
-                        
                     ))
                     } 
                 </div>
